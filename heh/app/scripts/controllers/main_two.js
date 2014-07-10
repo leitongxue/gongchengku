@@ -21,5 +21,9 @@ angular.module('myYoProjectApp')
         $scope.go_back=function(){
             $location.path('/list')
         }
+        $scope.register="创建活动";
+        $scope.go_register=function(){
+            $location.path('/creat')
+        }
 
     });
