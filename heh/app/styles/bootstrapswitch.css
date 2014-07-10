@@ -47,6 +47,7 @@
   width: 150%;
   position: relative;
   top: 0;
+  color: #e51d18;
 }
 .has-switch > div.switch-animate {
   -webkit-transition: left 0.5s;

@@ -8,18 +8,15 @@
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
-    .controller('CreatCtrl', function ($scope,$return,$table) {
+    .controller('CreatCtrl', function ($scope,$location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
-        $scope.back="返回";
-        $scope.go_back=function(){
-            $return.path('/main')
+        $scope.backing="返回";
+        $scope.go_backing=function(){
+            $location.path('/list')
         }
-        $scpe.list="创建列表";
-        $scope.go_table=function(){
-            $table.path('/main two')
-        }
+
     });
