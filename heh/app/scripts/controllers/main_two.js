@@ -1,10 +1,13 @@
+/**
+ * Created by lei on 14-7-10.
+ */
 'use strict';
 
 /**
  * @ngdoc function
  * @name myYoProjectApp.controller:AboutCtrl
  * @description
- * # AboutCtrl
+ * #CreatCtrl
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
@@ -16,13 +19,7 @@ angular.module('myYoProjectApp')
         ];
         $scope.back="返回";
         $scope.go_back=function(){
-            $location.path('list')
+            $location.path('/list')
         }
-        $scope.register="创建活动";
-        $scope.go_register=function(){
-            $location.path('creat')
-        }
+
     });
-/**
- * Created by lei on 14-7-9.
- */
