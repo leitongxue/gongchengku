@@ -21,10 +21,11 @@ angular.module('myYoProjectApp')
         $scope.go_back = function () {
             $location.path('/list')
         }
-        $scope.register = "创建活动";
+        $scope.register = "创建";
         $scope.go_register = function () {
             $location.path('/creat')
         }
+
 
 
         function jump() {
@@ -36,5 +37,8 @@ angular.module('myYoProjectApp')
 
 
         }
+
+
+
     }
         )

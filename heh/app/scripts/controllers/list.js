@@ -14,18 +14,11 @@ angular.module('myYoProjectApp')
       'AngularJS',
       'Karma'
     ];
+        $scope.list1 = JSON.parse(localStorage.getItem('activities'))||[];
         $scope.next="创建活动";
         $scope.go_next=function(){
-            $location.path('main_two')
+            $location.path('main_two');
         }
-
-        $scope.list1=JSON.parse(localStorage.getItem('activities')) || [];
-//        function first(){
-//            $scope.first = JSON.parse(localStorage.getItem('messages')) || [];
-//
-//
-//        }
-//            first();
 
     }
 

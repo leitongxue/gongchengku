@@ -14,13 +14,33 @@ angular.module('myYoProjectApp')
       'AngularJS',
       'Karma'
      ];
+        $scope.show1=false;
 
-            $scope.register = "创建";
-            $scope.go_register = function () {
-                jump()
-                $location.path('/creat')
+        $scope.inputstatus = function()
+        {
+            var activities = JSON.parse(localStorage.getItem('activities')) || [];
+            for(var i=0;i<activities.length;i++)
+            {
+                if(activities[i]==$scope.change)
+                {
+                    $scope.show1=true;
+                }
+                else{
+                    $scope.show1=false;
+                }
+                console.log($scope.show1);
+            }
+        }
 
-            };
+        $scope.register = "创建";
+        $scope.go_register = function () {
+            jump()
+            if($scope.show1 == false)
+            {
+                $location.path('/creat');
+            }
+
+        };
 
                   //          数组
            function jump() {
@@ -33,6 +53,7 @@ angular.module('myYoProjectApp')
                localStorage.setItem("activities", JSON.stringify(activities));
 
            }
+
 
 }
 
