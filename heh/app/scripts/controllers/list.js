@@ -19,4 +19,15 @@ angular.module('myYoProjectApp')
             $location.path('main_two')
         }
 
-    });
+        $scope.list1=JSON.parse(localStorage.getItem('activities')) || [];
+//        function first(){
+//            $scope.first = JSON.parse(localStorage.getItem('messages')) || [];
+//
+//
+//        }
+//            first();
+
+    }
+
+
+);

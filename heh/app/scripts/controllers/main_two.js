@@ -17,13 +17,24 @@ angular.module('myYoProjectApp')
             'AngularJS',
             'Karma'
         ];
-        $scope.back="返回";
-        $scope.go_back=function(){
+        $scope.back = "返回";
+        $scope.go_back = function () {
             $location.path('/list')
         }
-        $scope.register="创建活动";
-        $scope.go_register=function(){
+        $scope.register = "创建活动";
+        $scope.go_register = function () {
             $location.path('/creat')
         }
 
-    });
+
+        function jump() {
+            var activity = $scope.change;
+
+            var activities = JSON.parse(localStorage.getItem('activities')) || [];
+            activities.push(activity)
+            localStorage.setItem("activities", JSON.stringify(activities));
+
+
+        }
+    }
+        )

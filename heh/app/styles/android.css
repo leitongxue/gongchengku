@@ -81,7 +81,7 @@ header {
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #0079c8), color-stop(1, #0067b6));
 	box-shadow: 0px 0px 3px 0px rgba(0,0,0, .8);
 	padding:0;
-	color:#fff;
+	color:#000000;
 	font-size:16px;
 	text-align:center;
 	-webkit-transition: all 0.3s ease;
@@ -95,9 +95,10 @@ header {
 
 .header-right {
 	position: absolute;
-	z-index: 10;
+	z-index: 40;
 	right: 8px;
 	top: 0px;
+    color: #000000;
 }
 
 .header-right-pulldown {
@@ -138,8 +139,8 @@ footer {
 	display: block;
 	padding:6px 0;
 	text-align: center;
-	color: #fff;
-	font-size: 50px;
+	color: #000000;
+	font-size: 30px;
 	font-weight: normal;
 	text-shadow: #222 -1px -1px;
 	text-decoration: none;

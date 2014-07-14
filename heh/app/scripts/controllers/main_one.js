@@ -9,15 +9,31 @@
  */
 angular.module('myYoProjectApp')
   .controller('Main_OneCtrl', function ($scope,$location) {
-    $scope.awesomeThings = [
+        $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
-        $scope.register="创建";
-        $scope.go_register=function(){
-            $location.path('/creat')
-        };
+     ];
 
+            $scope.register = "创建";
+            $scope.go_register = function () {
+                jump()
+                $location.path('/creat')
 
-  });
+            };
+
+                  //          数组
+           function jump() {
+               var activity = $scope.change;
+               console.log(activity);
+               var activities = JSON.parse(localStorage.getItem('activities')) || [];
+
+               activities.unshift(activity);
+
+               localStorage.setItem("activities", JSON.stringify(activities));
+
+           }
+
+}
+
+)
