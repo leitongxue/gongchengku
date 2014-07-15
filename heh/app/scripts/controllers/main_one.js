@@ -24,6 +24,7 @@ angular.module('myYoProjectApp')
                 if(activities[i]==$scope.change)
                 {
                     $scope.show1=true;
+                    break;
                 }
                 else{
                     $scope.show1=false;
