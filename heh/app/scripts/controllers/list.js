@@ -17,7 +17,7 @@ angular.module('myYoProjectApp')
         $scope.list1 = JSON.parse(localStorage.getItem('activities'))||[];
         $scope.next="创建活动";
         $scope.go_next=function(){
-            $location.path('main_two');
+            $location.path('main_one');
         }
 
     }

@@ -28,8 +28,13 @@ angular.module('myYoProjectApp')
                 else{
                     $scope.show1=false;
                 }
-                console.log($scope.show1);
+//                console.log($scope.show1);
             }
+        }
+
+        $scope.back = "返回";
+        $scope.go_back = function () {
+            $location.path('/list')
         }
 
         $scope.register = "创建";
@@ -38,22 +43,27 @@ angular.module('myYoProjectApp')
             if($scope.show1 == false)
             {
                 $location.path('/creat');
+
+
             }
 
         };
 
                   //          数组
            function jump() {
+               if($scope.show1==false)
+               {
                var activity = $scope.change;
-               console.log(activity);
+//               console.log(activity);
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 
                activities.unshift(activity);
-
                localStorage.setItem("activities", JSON.stringify(activities));
 
            }
+           }
 
+            $scope.see=localStorage.getItem('activities');
 
 }
 

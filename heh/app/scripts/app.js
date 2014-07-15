@@ -31,10 +31,7 @@ angular
         templateUrl: 'views/creat.html',
         controller: 'CreatCtrl'
       })
-        .when('/main_two', {
-            templateUrl: 'views/main_two.html',
-            controller: 'Main_twoCtrl'
-        })
+
       .otherwise({
         redirectTo: '/'
       });
