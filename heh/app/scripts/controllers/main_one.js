@@ -16,6 +16,11 @@ angular.module('myYoProjectApp')
      ];
         $scope.show1=false;
 
+
+
+
+
+
         $scope.inputstatus = function()
         {
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
@@ -26,32 +31,34 @@ angular.module('myYoProjectApp')
                     $scope.show1=true;
                     break;
                 }
-                else{
+                else
+                {
                     $scope.show1=false;
                 }
-//                console.log($scope.show1);
+
             }
         }
 
         $scope.back = "返回";
-        $scope.go_back = function () {
+        $scope.go_back = function ()
+        {
             $location.path('/list')
         }
 
         $scope.register = "创建";
-        $scope.go_register = function () {
+        $scope.go_register = function ()
+        {
             jump()
             if($scope.show1 == false)
             {
                 $location.path('/creat');
-
-
             }
 
         };
 
                   //          数组
-           function jump() {
+           function jump()
+           {
                if($scope.show1==false)
                {
                var activity = $scope.change;
@@ -61,9 +68,10 @@ angular.module('myYoProjectApp')
                activities.unshift(activity);
                localStorage.setItem("activities", JSON.stringify(activities));
 
-           }
+               }
            }
 
+            //返回按钮的显隐
             $scope.see=localStorage.getItem('activities');
 
 }
