@@ -22,6 +22,19 @@ angular.module('myYoProjectApp')
             $location.path('main_one');
         }
 
+
+        function xuan() {
+            var choose = JSON.parse(localStorage.getItem('activities')) || [];
+            if (choose.length == 0) {
+                $location.path('/main_one');
+            }
+            else {
+
+            }
+        }
+
+        xuan()
+
     }
 
 

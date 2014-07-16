@@ -18,9 +18,6 @@ angular.module('myYoProjectApp')
 
 
 
-
-
-
         $scope.inputstatus = function()
         {
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
