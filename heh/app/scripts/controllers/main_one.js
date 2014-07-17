@@ -59,7 +59,7 @@ angular.module('myYoProjectApp')
                if($scope.show1==false)
                {
                var activity = {"activity":$scope.change,"messages":[]};
-//               console.log(activity);
+
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 
                    activities.unshift(activity);

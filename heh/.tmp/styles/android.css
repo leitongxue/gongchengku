@@ -397,12 +397,12 @@ footer {
 	line-height: 30px;
 	padding:0px 16px;
 	border-radius: 4px;
-	color: #fff;
+	color: #000000;
 	border: 1px solid #005b9b;
 }
 
 .btn-4:hover {
-	color: #fff;
+	color: #000000;
 }
 
 .btn-4:active, .btn-4.active {

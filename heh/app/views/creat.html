@@ -4,10 +4,11 @@
 
      报 名
 
-    <div class="header-right">
-        <button class="btn btn-default btn-lg " ng-show="show3" > 开 始 </button>
-        <button class="btn btn-default btn-lg " ng-show="show4" > 结 束 </button>
+    <div class="header-right" ng-switch on="log">
+        <button class="btn-4  " ng-switch-when="true" ng-click="hh()" > 开 始 </button>
+        <button class="btn-4  " ng-switch-when="false" > 结 束 </button>
     </div>
+
     <div class="header-left">
 
         <button class="btn btn-default btn-lg"  ng-click="go_backing()">返回</button>
@@ -17,20 +18,21 @@
 </header>
 
 
-<div id="wrapper" class="wrapper scrollable">
-    <ul class="list-style-2">
-        <li ng-repeat="message in list2">
+<!--<div id="wrapper" class="wrapper scrollable">-->
+    <!--<ul class="list-style-2">-->
+        <!--<li ng-repeat="message in list2">-->
 
-            <button class=" btn-style btn-3">
-                .header-left
-                <h3>{{message.name}}</h3>
-                .header-fight
-                <h3>{{message.phone}}</h3>
-            </button>
+            <!--<button class=" btn-style btn-3">-->
 
-        </li>
-    </ul>
-</div>
+                <!--<div class="header-left"><h3>{{message.name}}</h3></div>-->
+
+                <!--<div class="header-fight"><h3>{{message.phone}}</h3></div>-->
+
+            <!--</button>-->
+
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
 
 
 

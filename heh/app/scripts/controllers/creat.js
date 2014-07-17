@@ -19,10 +19,11 @@ angular.module('myYoProjectApp')
             $location.path('/list')
         }
 
-        $scope.list2 = JSON.parse(localStorage.getItem('messages'))||[];
+        $scope.middle = JSON.parse(localStorage.getItem('activities'))||[];
 
-        $scope.show3=true
-        $scope.show4=false
+        $scope.log="true";
+        $scope.hh=function(){$scope.log="false"}
+
 
 
     });
