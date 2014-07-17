@@ -19,6 +19,7 @@ angular.module('myYoProjectApp')
             $location.path('/list')
         }
 
+        $scope.list2 = JSON.parse(localStorage.getItem('messages'))||[];
 
         $scope.show3=true
         $scope.show4=false

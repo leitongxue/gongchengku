@@ -58,11 +58,11 @@ angular.module('myYoProjectApp')
            {
                if($scope.show1==false)
                {
-               var activity = {"activity":$scope.change};
+               var activity = {"activity":$scope.change,"messages":[]};
 //               console.log(activity);
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 
-               activities.unshift(activity);
+                   activities.unshift(activity);
                localStorage.setItem("activities", JSON.stringify(activities));
 
                }

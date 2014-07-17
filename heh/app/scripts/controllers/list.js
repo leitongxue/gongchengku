@@ -22,6 +22,12 @@ angular.module('myYoProjectApp')
             $location.path('main_one');
         }
 
+        $scope.tiao=function(){
+
+            $location.path('/creat')
+        }
+
+
 
         function xuan() {
             var choose = JSON.parse(localStorage.getItem('activities')) || [];

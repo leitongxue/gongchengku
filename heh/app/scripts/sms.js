@@ -13,9 +13,15 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
-console.log("12323123")
-        console.log(json_message.messages[0].phone)
-        console.log(json_message)
+
+//        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
+        var activity = JSON.parse(localStorage.getItem('activities'))
+        var message={"name":"name","phone":"phone"}
+        message.name=json_message.messages[0].message
+        message.phone=json_message.messages[0].phone
+        activity[0].messages.unshift(message);
+//        activity[i]
+        localStorage.setItem("activities", JSON.stringify(activity));
     }
 }
 
