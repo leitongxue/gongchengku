@@ -14,6 +14,7 @@ var native_accessor = {
 
     process_received_message: function (json_message) {
 console.log("12323123")
+        console.log(json_message.messages[0].phone)
         console.log(json_message)
     }
 }

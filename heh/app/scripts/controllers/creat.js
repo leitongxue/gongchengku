@@ -19,4 +19,9 @@ angular.module('myYoProjectApp')
             $location.path('/list')
         }
 
+
+        $scope.show3=true
+        $scope.show4=false
+
+
     });

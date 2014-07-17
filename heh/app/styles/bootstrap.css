@@ -3322,7 +3322,7 @@ button.close {
 
 .btn-block {
   display: block;
-  width: 10%;
+  width: 100%;
   padding-right: 0;
   padding-left: 0;
   -webkit-box-sizing: border-box;

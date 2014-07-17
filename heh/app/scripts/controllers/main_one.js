@@ -23,7 +23,7 @@ angular.module('myYoProjectApp')
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
             for(var i=0;i<activities.length;i++)
             {
-                if(activities[i]==$scope.change)
+                if(activities[i].activity==$scope.change)
                 {
                     $scope.show1=true;
                     break;
@@ -58,7 +58,7 @@ angular.module('myYoProjectApp')
            {
                if($scope.show1==false)
                {
-               var activity = $scope.change;
+               var activity = {"activity":$scope.change};
 //               console.log(activity);
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 
