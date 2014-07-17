@@ -25,5 +25,12 @@ angular.module('myYoProjectApp')
         $scope.hh=function(){$scope.log="false"}
 
 
+        $scope.HH=function firm()
+        {
+            if (confirm("你确定提交吗？"))
+            {
+               $scope.log="true"
+            }
+        }
 
     });
