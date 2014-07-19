@@ -49,16 +49,19 @@ angular.module('myYoProjectApp')
             if($scope.show1 == false)
             {
                 $location.path('/creat');
+                localStorage.ttt=$scope.change
             }
 
-        };
+        }
+
 
                   //          数组
            function jump()
            {
                if($scope.show1==false)
                {
-               var activity = {"activity":$scope.change,"messages":[]};
+
+               var activity = {"activity":$scope.change,"messages":[],"tureth":"false"}
 
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 

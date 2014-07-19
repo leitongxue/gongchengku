@@ -5,8 +5,8 @@
      报 名
 
     <div class="header-right" ng-switch on="log">
-        <button class="btn-4  " ng-switch-when="true"  ng-click="hh()" > 开 始 </button>
-        <button class="btn-4  " ng-switch-when="false" ng-click="HH()"> 结 束 </button>
+        <button class="btn-4" ng-switch-when="true"  ng-click="hh()"  ng-diaabled="true"> 开 始 </button>
+        <button class="btn-4" ng-switch-when="false" ng-click="HH()"> 结 束 </button>
     </div>
 
     <div class="header-left">
@@ -18,28 +18,14 @@
 </header>
 
 
-
-<!--<div id="wrapper" class="wrapper scrollable">-->
-    <!--<ul class="list-style-2">-->
-        <!--<li ng-repeat="messages in middle">-->
-
-            <!--<div class="header-left">-->
-                <!--<h3>{{messages.name}}</h3>-->
-            <!--</div>-->
-            <!---->
-            <!--<div class="header-right">-->
-                <!--<h3>{{messages.phone}}</h3>-->
-            <!--</div>-->
-        <!--</li>-->
-    <!--</ul>-->
-<!--</div>-->
-
 <div id="wrapper" class="wrapper scrollable">
     <ul class="list-style-2">
         <li ng-repeat="messages in middle">
+             <h3>{{messages.name}}</h3>
 
-               <h3>{{messages.name}}</h3>
-                <h3 class="header-right">{{messages.phone}}</h3>
+             <h3 class="header-right">
+                 {{messages.phone}}
+             </h3>
         </li>
     </ul>
 </div>

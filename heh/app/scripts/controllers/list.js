@@ -22,7 +22,8 @@ angular.module('myYoProjectApp')
             $location.path('main_one');
         }
 
-        $scope.tiao=function(){
+        $scope.tiao=function (activity){
+            localStorage.ttt=activity.activity;
 
             $location.path('/creat')
         }
@@ -40,6 +41,7 @@ angular.module('myYoProjectApp')
         }
 
         xuan()
+
 
     }
 
