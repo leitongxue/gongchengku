@@ -29,6 +29,7 @@ angular.module('myYoProjectApp')
         }
 
         $scope.log="true";
+//开始按钮
         $scope.hh=function()
         {
             $scope.log="false";
@@ -39,36 +40,15 @@ angular.module('myYoProjectApp')
                 if(gg[i].activity==oo)
                 {
                 gg[i].tureth = "true";
+
                 localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
             }
 
-//        for (var j in active) {
-//            if (active[j].actname == localStorage.working_activity) {
-//                if (active[j].activity_status == 'true') {
-//                    $scope.switch = "false"
-//                } else {
-//                    $scope.switch = "true"
-//                }
-//            }
-//        }
-//        for(var k in gg)
-//        {
-//            if(gg[k]==localStorage.getItem('ttt'))
-//            {
-//                if(gg[k].messages=='false')
-//                {
-//                    $scope.log="false"
-//                }
-//                else
-//                {
-//                    $scope.log="true"
-//                }
-//            }
-//
 
-        
+
+//结束按钮
         $scope.HH=function firm()
         {
             if (confirm("你确定要退出活动吗？"))
@@ -87,4 +67,23 @@ angular.module('myYoProjectApp')
 
         }
 
+        //开始按钮的显隐，当tureth数组中有一个true，按钮不可点
+        function start_change ()
+        {
+            for(var i=0;i<gg.length;i++)
+            {
+                console.log(gg[i].tureth);
+                if(gg[i].tureth=="true")
+                {
+                    $scope.start_change=true;
+                    break;
+                }
+                else
+                {
+                    $scope.start_change=false;
+                }
+            }
+        }
+        start_change();
+//        console.log($scope.start_change);
     });
