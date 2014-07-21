@@ -37,11 +37,38 @@ angular.module('myYoProjectApp')
             {
                 var oo=localStorage.getItem('ttt')
                 if(gg[i].activity==oo)
+                {
                 gg[i].tureth = "true";
                 localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
+            }
 
+//        for (var j in active) {
+//            if (active[j].actname == localStorage.working_activity) {
+//                if (active[j].activity_status == 'true') {
+//                    $scope.switch = "false"
+//                } else {
+//                    $scope.switch = "true"
+//                }
+//            }
+//        }
+//        for(var k in gg)
+//        {
+//            if(gg[k]==localStorage.getItem('ttt'))
+//            {
+//                if(gg[k].messages=='false')
+//                {
+//                    $scope.log="false"
+//                }
+//                else
+//                {
+//                    $scope.log="true"
+//                }
+//            }
+//
+
+        
         $scope.HH=function firm()
         {
             if (confirm("你确定要退出活动吗？"))
@@ -59,12 +86,5 @@ angular.module('myYoProjectApp')
             }
 
         }
-
-//        console.log($scope.choose_true="false")
-
-//        $scope.choose_true=function()
-//        {
-//
-//        }
 
     });
