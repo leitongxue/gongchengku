@@ -29,6 +29,16 @@ angular.module('myYoProjectApp')
         }
 
         $scope.log="true";
+        for(var i=0;i<gg.length;i++)
+        {
+            var oo = localStorage.getItem('ttt')
+            if (gg[i].activity == oo){
+            if (gg[i].tureth == "true")
+            {
+                    $scope.log="false"
+            }
+        }}
+
 //开始按钮
         $scope.hh=function()
         {
@@ -39,12 +49,11 @@ angular.module('myYoProjectApp')
                 var oo=localStorage.getItem('ttt')
                 if(gg[i].activity==oo)
                 {
-                gg[i].tureth = "true";
-
-                localStorage.setItem("activities", JSON.stringify(gg));
+                    gg[i].tureth = "true";
+                    localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
-            }
+        }
 
 
 
@@ -54,7 +63,7 @@ angular.module('myYoProjectApp')
             if (confirm("你确定要退出活动吗？"))
             {
                 $scope.log="true"
-                $scope.log="false";
+//                $scope.log="false";
                 var tureth={"log":"log"}
                 for(var i=0;i<gg.length;i++)
                 {
@@ -85,5 +94,20 @@ angular.module('myYoProjectApp')
             }
         }
         start_change();
-//        console.log($scope.start_change);
+
+
+
+
+        function see_end()
+        {
+            for(var i=0;i<gg.length;i++)
+            {
+                var oo = localStorage.getItem('ttt')
+                if (gg[i].activity == oo)
+                {
+//                    $scope.log="false"
+                }
+            }
+        }
     });
+
