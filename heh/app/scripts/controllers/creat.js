@@ -20,10 +20,12 @@ angular.module('myYoProjectApp')
             $location.path('/list')
         }
 
-
+//选择显示
         var gg = JSON.parse(localStorage.getItem('activities'))||[];
         for (var i = 0; i < gg.length; i++)
         {
+            var oo = localStorage.getItem('ttt')
+            if(gg[i].activity==oo)
             $scope.middle = gg[i].messages
 
         }

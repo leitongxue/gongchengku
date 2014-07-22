@@ -19,19 +19,17 @@ var native_accessor = {
         var activity = JSON.parse(localStorage.getItem('activities'))
         var message={"name":"name","phone":"phone"}
 
-//        console.log(json_message)
+
         message.name=json_message.messages[0].message
         message.phone=json_message.messages[0].phone
         for(var i=0;i<activity.length;i++)
         {
             var oo = localStorage.getItem('ttt')
-            if(activity[i].activity == oo&&activity[i].tureth == "true")
+            if(activity[i].tureth == "true")
             {
                 activity[i].messages.unshift(message);
             }
         }
-//        activity[i]
-//        console.log(activity)
         localStorage.setItem("activities", JSON.stringify(activity));
 
     }
