@@ -17,11 +17,21 @@ var native_accessor = {
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
 
         var activity = JSON.parse(localStorage.getItem('activities'))
-        var message={"name":"name","phone":"phone","action":"false"}
+        var message={"name":"name","phone":"phone"}
+
+//        console.log(json_message)
         message.name=json_message.messages[0].message
         message.phone=json_message.messages[0].phone
-        activity[0].messages.unshift(message);
+        for(var i=0;i<activity.length;i++)
+        {
+            var oo = localStorage.getItem('ttt')
+            if(activity[i].activity == oo&&activity[i].tureth == "true")
+            {
+                activity[i].messages.unshift(message);
+            }
+        }
 //        activity[i]
+//        console.log(activity)
         localStorage.setItem("activities", JSON.stringify(activity));
 
     }

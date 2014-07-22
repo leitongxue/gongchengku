@@ -27,7 +27,7 @@ angular.module('myYoProjectApp')
             $scope.middle = gg[i].messages
 
         }
-
+//控制当一个活动开始报名后，此活动显示结束按钮，其余活动显示开始按钮
         $scope.log="true";
         for(var i=0;i<gg.length;i++)
         {
@@ -81,7 +81,7 @@ angular.module('myYoProjectApp')
         {
             for(var i=0;i<gg.length;i++)
             {
-                console.log(gg[i].tureth);
+
                 if(gg[i].tureth=="true")
                 {
                     $scope.start_change=true;
@@ -95,19 +95,5 @@ angular.module('myYoProjectApp')
         }
         start_change();
 
-
-
-
-        function see_end()
-        {
-            for(var i=0;i<gg.length;i++)
-            {
-                var oo = localStorage.getItem('ttt')
-                if (gg[i].activity == oo)
-                {
-//                    $scope.log="false"
-                }
-            }
-        }
     });
 
