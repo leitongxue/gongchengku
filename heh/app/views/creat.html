@@ -20,7 +20,7 @@
 
 <div id="wrapper" class="wrapper scrollable">
     <ul class="list-style-2">
-        <li ng-repeat="messages in middle">
+        <li ng-repeat="messages in middle track by $index">
              <h3>{{messages.name}}</h3>
 
              <h3 class="header-right">

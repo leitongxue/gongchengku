@@ -65,7 +65,6 @@ angular.module('myYoProjectApp')
             if (confirm("你确定要退出活动吗？"))
             {
                 $scope.log="true"
-//                $scope.log="false";
                 var tureth={"log":"log"}
                 for(var i=0;i<gg.length;i++)
                 {
@@ -75,7 +74,6 @@ angular.module('myYoProjectApp')
                     localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
-
         }
 
         //开始按钮的显隐，当tureth数组中有一个true，按钮不可点

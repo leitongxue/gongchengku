@@ -17,24 +17,55 @@ var native_accessor = {
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
 
         var activity = JSON.parse(localStorage.getItem('activities'))
-        var message={"name":"name","phone":"phone"}
+        var message = {"name": "name", "phone": "phone"}
 
 
-        message.name=json_message.messages[0].message
-        message.phone=json_message.messages[0].phone
-        for(var i=0;i<activity.length;i++)
+        message.name = json_message.messages[0].message
+        message.phone = json_message.messages[0].phone
+//       console.log(activity[0].messages[0].phone)
+//console.log(message.phone)
+        for (var i = 0; i < activity.length; i++)
         {
             var oo = localStorage.getItem('ttt')
-            if(activity[i].tureth == "true")
+            if (activity[i].tureth == "true")
             {
-                activity[i].messages.unshift(message);
+                console.log(activity[i].messages.length)
+                if (activity[i].messages.length == 0)
+                {
+                    activity[i].messages.unshift(message);
+                    localStorage.setItem("activities", JSON.stringify(activity));
+                    console.log("恭喜您，报名成功！")
+                }
+                else
+                {
+                    for (var k = 0; k < activity[i].messages.length; k++)
+                    {
+                        console.log("fsd")
+                        if (message.phone == activity[i].messages[k].phone)
+                        {
+                            console.log("报名已成功，请勿重复报名")
+                            return;
+                        }
+
+                    }
+                    activity[i].messages.unshift(message);
+                    localStorage.setItem("activities", JSON.stringify(activity));
+                    console.log("恭喜您，报名成功！")
+                    return;
+
+                }
+                return;
             }
+
+
+
+
         }
-        localStorage.setItem("activities", JSON.stringify(activity));
+        console.log("报名未开始，请耐心等待");
+//        break;
 
     }
 }
-
 
 
 function notify_message_received(message_json) {
