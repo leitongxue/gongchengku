@@ -29,7 +29,7 @@ var native_accessor = {
             var oo = localStorage.getItem('ttt')
             if (activity[i].tureth == "true")
             {
-                console.log(activity[i].messages.length)
+//                console.log(activity[i].messages.length)
                 if (activity[i].messages.length == 0)
                 {
                     activity[i].messages.unshift(message);
@@ -40,7 +40,7 @@ var native_accessor = {
                 {
                     for (var k = 0; k < activity[i].messages.length; k++)
                     {
-                        console.log("fsd")
+//                        console.log("fsd")
                         if (message.phone == activity[i].messages[k].phone)
                         {
                             console.log("报名已成功，请勿重复报名")
@@ -56,9 +56,6 @@ var native_accessor = {
                 }
                 return;
             }
-
-
-
 
         }
         console.log("报名未开始，请耐心等待");

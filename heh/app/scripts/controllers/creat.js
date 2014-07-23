@@ -26,9 +26,14 @@ angular.module('myYoProjectApp')
         {
             var oo = localStorage.getItem('ttt')
             if(gg[i].activity==oo)
-            $scope.middle = gg[i].messages
+            {
+                $scope.middle = gg[i].messages
+                $scope.number = gg[i].messages.length
 
+            }
         }
+
+
 //控制当一个活动开始报名后，此活动显示结束按钮，其余活动显示开始按钮
         $scope.log="true";
         for(var i=0;i<gg.length;i++)
@@ -62,6 +67,7 @@ angular.module('myYoProjectApp')
 //结束按钮
         $scope.HH=function firm()
         {
+            var gg = JSON.parse(localStorage.getItem('activities'))||[];
             if (confirm("你确定要退出活动吗？"))
             {
                 $scope.log="true"
