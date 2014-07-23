@@ -19,19 +19,24 @@ angular.module('myYoProjectApp')
         {
             $location.path('/list')
         }
+        var gg = JSON.parse(localStorage.getItem('activities')) || [];
 
-//选择显示
-        var gg = JSON.parse(localStorage.getItem('activities'))||[];
-        for (var i = 0; i < gg.length; i++)
-        {
-            var oo = localStorage.getItem('ttt')
-            if(gg[i].activity==oo)
+//选择显示；页面刷新
+         $scope.diaoyong=function()
+         {
+//             console.log("21")
+            var gg = JSON.parse(localStorage.getItem('activities')) || [];
+            for (var i = 0; i < gg.length; i++)
             {
-                $scope.middle = gg[i].messages
-                $scope.number = gg[i].messages.length
-
+                var oo = localStorage.getItem('ttt')
+                if (gg[i].activity == oo)
+                {
+                    $scope.middle = gg[i].messages
+                    $scope.number = gg[i].messages.length
+                }
             }
         }
+        $scope.diaoyong()
 
 
 //控制当一个活动开始报名后，此活动显示结束按钮，其余活动显示开始按钮
@@ -39,12 +44,14 @@ angular.module('myYoProjectApp')
         for(var i=0;i<gg.length;i++)
         {
             var oo = localStorage.getItem('ttt')
-            if (gg[i].activity == oo){
-            if (gg[i].tureth == "true")
+            if (gg[i].activity == oo)
             {
+                if (gg[i].tureth == "true")
+                {
                     $scope.log="false"
+                }
             }
-        }}
+        }
 
 //开始按钮
         $scope.hh=function()
@@ -82,7 +89,8 @@ angular.module('myYoProjectApp')
             }
         }
 
-        //开始按钮的显隐，当tureth数组中有一个true，按钮不可点
+
+ //开始按钮的显隐，当tureth数组中有一个true，按钮不可点
         function start_change ()
         {
             for(var i=0;i<gg.length;i++)

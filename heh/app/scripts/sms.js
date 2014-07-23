@@ -2,7 +2,7 @@
 //notify_message_received({"messages":[{"create_date":"Tue Jan 15 15:28:44 格林尼治标准时间+0800 2013","message":"jj308","phone":"18733171780"}]})
 var native_accessor = {
     send_sms: function (phone, message) {
-//        native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
+        native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
         console.log(phone, message);
     },
 
@@ -24,26 +24,22 @@ var native_accessor = {
         message.phone = json_message.messages[0].phone
 //       console.log(activity[0].messages[0].phone)
 //console.log(message.phone)
-        for (var i = 0; i < activity.length; i++)
-        {
+        for (var i = 0; i < activity.length; i++) {
             var oo = localStorage.getItem('ttt')
-            if (activity[i].tureth == "true")
-            {
+            if (activity[i].tureth == "true") {
 //                console.log(activity[i].messages.length)
-                if (activity[i].messages.length == 0)
-                {
+                if (activity[i].messages.length == 0) {
                     activity[i].messages.unshift(message);
                     localStorage.setItem("activities", JSON.stringify(activity));
                     console.log("恭喜您，报名成功！")
+                    refresh_pages()
                 }
-                else
-                {
-                    for (var k = 0; k < activity[i].messages.length; k++)
-                    {
+                else {
+                    for (var k = 0; k < activity[i].messages.length; k++) {
 //                        console.log("fsd")
-                        if (message.phone == activity[i].messages[k].phone)
-                        {
+                        if (message.phone == activity[i].messages[k].phone) {
                             console.log("报名已成功，请勿重复报名")
+
                             return;
                         }
 
@@ -51,6 +47,8 @@ var native_accessor = {
                     activity[i].messages.unshift(message);
                     localStorage.setItem("activities", JSON.stringify(activity));
                     console.log("恭喜您，报名成功！")
+                    refresh_pages()
+
                     return;
 
                 }
@@ -64,6 +62,15 @@ var native_accessor = {
     }
 }
 
+function refresh_pages() {
+    var refresh_page = document.getElementById('wrapper')
+    if (refresh_page) {
+        var scope = angular.element(refresh_page).scope();
+        scope.$apply(function () {
+            scope.diaoyong();
+        })
+    }
+}
 
 function notify_message_received(message_json) {
     //console.log(JSON.stringify(message_json));
