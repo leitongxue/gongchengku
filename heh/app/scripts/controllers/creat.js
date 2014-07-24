@@ -87,6 +87,7 @@ angular.module('myYoProjectApp')
                     localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
+            return;
         }
 
 
