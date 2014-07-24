@@ -87,7 +87,8 @@ angular.module('myYoProjectApp')
                     localStorage.setItem("activities", JSON.stringify(gg));
                 }
             }
-            return;
+            $location.path
+            return;//处理有活动接受到报名信息后点击结束按钮，开始按钮显示但不可点问题
         }
 
 

@@ -31,6 +31,14 @@ angular
         templateUrl: 'views/creat.html',
         controller: 'CreatCtrl'
       })
+        .when('/jingjia_list', {
+            templateUrl: 'views/jingjia_list.html',
+            controller: 'Jingjia_listCtrl'
+        })
+        .when('/jingjia_message', {
+            templateUrl: 'views/jingjia_message.html',
+            controller: 'Jingjia_messageCtrl'
+        })
 
       .otherwise({
         redirectTo: '/'

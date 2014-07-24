@@ -65,6 +65,7 @@ var native_accessor = {
         }
     }
 }
+//每当有报名信息收录时，页面自动刷新
 function refresh_pages() {
     var refresh_page = document.getElementById('wrapper')
     if (refresh_page) {
