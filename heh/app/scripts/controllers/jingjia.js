@@ -17,7 +17,7 @@ angular.module('myYoProjectApp')
 
         var gg = JSON.parse(localStorage.getItem('activities')) || [];
 
-        $scope.move = function () {
+        $scope.move = function (shus) {
             for (var i = 0; i < gg.length; i++) {
                 if (gg[i].tureth == "true") {
                 }
@@ -36,6 +36,7 @@ angular.module('myYoProjectApp')
                     shus[0].shus = "竞价" + shus.length
                     shus[0].color = "true"
                     localStorage.setItem("shus", JSON.stringify(shus))
+                    localStorage.TTT=shus[0].shus;
                     $location.path('/Money_message')
                     break
                 }
@@ -60,6 +61,15 @@ angular.module('myYoProjectApp')
 
         }
 dian()
+
+        $scope.next=function (shus)
+        {
+            console.log(shus)
+//            var s1 = JSON.parse(localStorage.getItem('shus')) || [];
+            localStorage.TTT=shus.shus;
+
+            $location.path('/Money_message')
+        }
 
         $scope.list2 = JSON.parse(localStorage.getItem('shus')) || [];
         $scope.back = function () {
