@@ -31,14 +31,14 @@ angular
         templateUrl: 'views/creat.html',
         controller: 'CreatCtrl'
       })
-        .when('/jingjia_list', {
-            templateUrl: 'views/jingjia_list.html',
-            controller: 'Jingjia_listCtrl'
-        })
-        .when('/jingjia_message', {
-            templateUrl: 'views/jingjia_message.html',
-            controller: 'Jingjia_messageCtrl'
-        })
+      .when('/jingjia', {
+        templateUrl: 'views/jingjia.html',
+        controller: 'JingjiaCtrl'
+      })
+      .when('/Money_message', {
+        templateUrl: 'views/Money_message.html',
+        controller: 'Money_MessageCtrl'
+      })
 
       .otherwise({
         redirectTo: '/'

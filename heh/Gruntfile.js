@@ -12,6 +12,8 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
+grunt.loadNpmTasks('grunt-jade');
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -23,12 +25,22 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+jade:{    
+            create_activity: {    
+                src: 'app/views/jingjia.jade',    
+                dest: 'app/views/jingjia.html'    
+            },    
+      }, 
 
     // Project settings
     yeoman: appConfig,
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+    jade: {  
+            files: ['<%= yeoman.app %>/views/*'],  
+            tasks: ['jade']  
+    },  
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']

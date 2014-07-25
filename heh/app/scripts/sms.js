@@ -12,7 +12,8 @@ var native_accessor = {
         }
     },
 
-    process_received_message: function (json_message) {
+    process_received_message: function (json_message)
+    {
 
         var duanxin = json_message.messages[0].message.replace(/\s/g, "");
 
@@ -25,43 +26,43 @@ var native_accessor = {
         message.name = duanxin.substr(2).trim()
         message.phone = json_message.messages[0].phone
 //       console.log(activity[0].messages[0].phone)
-//console.log(message.phone)
-        if (duanxin.search(/bm/i) == 0) {
-            for (var i = 0; i < activity.length; i++) {
+//       console.log(message.phone)
+        if (duanxin.search(/bm/i) == 0)
+        {
+            for (var i = 0; i < activity.length; i++)
+            {
                 var oo = localStorage.getItem('ttt')
-                if (activity[i].tureth == "true") {
+                if (activity[i].tureth == "true")
+                {
 //                console.log(activity[i].messages.length)
-                    if (activity[i].messages.length == 0) {
+                    if (activity[i].messages.length == 0)
+                    {
                         activity[i].messages.unshift(message);
                         localStorage.setItem("activities", JSON.stringify(activity));
                         native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，报名成功！")
                         refresh_pages()
                     }
-                    else {
-                        for (var k = 0; k < activity[i].messages.length; k++) {
+                    else
+                    {
+                        for (var k = 0; k < activity[i].messages.length; k++)
+                        {
 //                        console.log("fsd")
-                            if (message.phone == activity[i].messages[k].phone) {
+                            if (message.phone == activity[i].messages[k].phone)
+                            {
                                 native_accessor.send_sms(json_message.messages[0].phone, "报名已成功，请勿重复报名")
-
                                 return;
                             }
-
                         }
                         activity[i].messages.unshift(message);
                         localStorage.setItem("activities", JSON.stringify(activity));
                         native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，报名成功！")
                         refresh_pages()
-
                         return;
-
                     }
                     return;
                 }
-
             }
             native_accessor.send_sms(json_message.messages[0].phone, "报名未开始，请耐心等待");
-//        break;
-
         }
     }
 }
