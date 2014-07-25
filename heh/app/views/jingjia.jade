@@ -6,4 +6,8 @@ header
       .header-right
          button.btn.btn-default.btn-lg(ng-click="move()") 开 始
 
-
+div#wrapper.wrapper.scrollable
+       ul.list-style-2
+           li.a(ng-repeat="shus in list2")
+                a(ng-click="next()")
+                    h3{{shus.shus}}

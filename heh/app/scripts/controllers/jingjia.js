@@ -40,6 +40,7 @@ angular.module('myYoProjectApp')
 //                if(){}
         }
         }
+        $scope.list2=JSON.parse(localStorage.getItem('shus'))||[];
         $scope.back=function()
         {
             $location.path('/creat')
