@@ -15,7 +15,19 @@ angular.module('myYoProjectApp')
       'Karma'
     ];
         $scope.list1 = JSON.parse(localStorage.getItem('activities'))||[];
-
+        var shus = JSON.parse(localStorage.getItem('shus')) || [];
+        for(var k = 0; k < shus.length; k++)
+        {
+            if(shus[k].color == "true")
+            {
+                $scope.dnf=true
+                break;
+            }
+            else
+            {
+                $scope.dnf=false;
+            }
+        }
 
         $scope.next="创建活动";
         $scope.go_next=function(){
