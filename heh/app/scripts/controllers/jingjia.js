@@ -21,8 +21,7 @@ angular.module('myYoProjectApp')
             for (var i = 0; i < gg.length; i++) {
                 if (gg[i].tureth == "true") {
                 }
-                else
-                {
+                else {
                     //定义数组
                     var shu = {"shus": "shu", "messages": [], "color": "false"}
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
@@ -36,38 +35,32 @@ angular.module('myYoProjectApp')
                     shus[0].shus = "竞价" + shus.length
                     shus[0].color = "true"
                     localStorage.setItem("shus", JSON.stringify(shus))
-                    localStorage.TTT=shus[0].shus;
+                    localStorage.TTT = shus[0].shus;
                     $location.path('/Money_message')
                     break
                 }
             }
         }
 
-        function dian()
-        {
+        function dian() {
             var shus = JSON.parse(localStorage.getItem('shus')) || [];
-            for(var k = 0; k < shus.length; k++)
-            {
-                if(shus[k].color == "true")
-                {
-                    $scope.dian=true;
+            for (var k = 0; k < shus.length; k++) {
+                if (shus[k].color == "true") {
+                    $scope.dian = true;
                     break;
                 }
-                else
-                {
-                    $scope.dian=false;
+                else {
+                    $scope.dian = false;
                 }
             }
 
         }
-dian()
 
-        $scope.next=function (shus)
-        {
+        dian()
+        //取出点击的竞价名
+        $scope.next = function (shus) {
             console.log(shus)
-//            var s1 = JSON.parse(localStorage.getItem('shus')) || [];
-            localStorage.TTT=shus.shus;
-
+            localStorage.TTT = shus.shus;
             $location.path('/Money_message')
         }
 

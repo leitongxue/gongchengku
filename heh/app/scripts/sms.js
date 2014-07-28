@@ -21,7 +21,7 @@ var native_accessor = {
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
         var activity = JSON.parse(localStorage.getItem('activities'))
         var message = {"name": "name", "phone": "phone"}
-
+        var shus = JSON.parse(localStorage.getItem('shus'))
 
         message.name = duanxin.substr(2).trim()
         message.phone = json_message.messages[0].phone
