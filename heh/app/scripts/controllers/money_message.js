@@ -19,7 +19,7 @@ angular.module('myYoProjectApp')
             $location.path('/jingjia')
         }
 
-
+        //结束按钮
         var shus = JSON.parse(localStorage.getItem('shus')) || [];
         $scope.end=function()
         {
@@ -33,9 +33,9 @@ angular.module('myYoProjectApp')
             }
         }
 
+        //竞价信息页面结束按钮的可点不可点
         for(var i=0;i<shus.length;i++)
         {
-//            $scope.xian=true
             var oo = localStorage.getItem('TTT')
             if (shus[i].shus == oo)
             {
