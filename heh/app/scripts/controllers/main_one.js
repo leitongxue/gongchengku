@@ -61,7 +61,7 @@ angular.module('myYoProjectApp')
                if($scope.show1==false)
                {
 
-               var activity = {"activity":$scope.change,"messages":[],"tureth":"false"}
+               var activity = {"activity":$scope.change,"messages":[],"tureth":"false","bid_status":"false"}
 
                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 

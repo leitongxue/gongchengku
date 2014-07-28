@@ -23,6 +23,19 @@ angular.module('myYoProjectApp')
                 }
                 else {
                     //定义数组
+
+//
+
+
+
+
+
+
+
+
+
+
+
                     var shu = {"shus": "shu", "messages": [], "color": "false"}
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
                     shus.unshift(shu);

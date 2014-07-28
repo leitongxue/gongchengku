@@ -31,7 +31,7 @@ angular.module('myYoProjectApp')
                     $scope.middle = gg[i].messages
                     $scope.number = gg[i].messages.length
                 }
-                else {}
+
             }
         }
         $scope.diaoyong()
@@ -47,6 +47,7 @@ angular.module('myYoProjectApp')
                 {
                     shus[0].color = "false"
                     localStorage.setItem("shus", JSON.stringify(shus))
+                    $scope.xian=true
                 }
             }
         }

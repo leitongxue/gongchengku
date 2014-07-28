@@ -19,9 +19,10 @@ var native_accessor = {
 
 
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
-        var activity = JSON.parse(localStorage.getItem('activities'))
+        var activity = JSON.parse(localStorage.getItem('activities')) || []
         var message = {"name": "name", "phone": "phone"}   //竞价时，name就是价格
         var shus = JSON.parse(localStorage.getItem('shus'))
+        var oo = localStorage.getItem('ttt')
 
         message.name = duanxin.substr(2).trim()
         message.phone = json_message.messages[0].phone
@@ -32,7 +33,6 @@ var native_accessor = {
         {
             for (var i = 0; i < activity.length; i++)
             {
-                var oo = localStorage.getItem('ttt')
                 if (activity[i].tureth == "true")
                 {
 //                console.log(activity[i].messages.length)
@@ -74,14 +74,22 @@ var native_accessor = {
             {
                 if(shus[0].messages.length==0)
                 {
-                    console.log(2)
-                shus[0].messages.unshift(message)
-                localStorage.setItem("shus",JSON.stringify(shus))
-                console.log("恭喜您，竞价成功！")
-                refresh_pages()
+                    for(k=0;k<activity[0].activity.length;k++)
+                    {
+                        for(j=0;j<activity[k].messages.length;j++) {
+                            if (activity[k].activity == oo && activity[k].messages[j].phone == message.phone) {
+                                shus[0].messages.unshift(message)
+                                localStorage.setItem("shus", JSON.stringify(shus))
+                                console.log("恭喜您，竞价成功！")
+                                refresh_pages()
+
+                            }
+                        }
+                    }
                 }
                 else
                 {
+
                     for(var i=0;i<shus[0].messages.length;i++)
                     {
                         if(message.phone==shus[0].messages[i].phone)
@@ -92,11 +100,26 @@ var native_accessor = {
                         }
                         else
                         {
-                            console.log(1)
-                            shus[0].messages.unshift(message)
-                            localStorage.setItem("shus",JSON.stringify(shus))
-                            console.log("恭喜您，竞价成功！")
-                            refresh_pages()
+                            for(a=0;a<activity.length;a++)
+                            {
+                                if(activity[a].activity==oo)
+                                {
+                                    for(k=0;k<activity[0].activity.length;k++)
+                                    {
+                                        for(j=0;j<activity[k].messages.length;j++) {
+                                            console.log(1)
+                                            if (activity[k].activity == oo && activity[k].messages[j].phone == message.phone)
+                                            {
+                                                shus[0].messages.unshift(message)
+                                                localStorage.setItem("shus", JSON.stringify(shus))
+                                                console.log("恭喜您，竞价成功！")
+                                                refresh_pages()
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                             break
                         }
                     }
