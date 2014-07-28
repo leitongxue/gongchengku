@@ -24,7 +24,6 @@ angular.module('myYoProjectApp')
 //选择显示；页面刷新
          $scope.diaoyong=function()
          {
-//             console.log("21")
             var gg = JSON.parse(localStorage.getItem('activities')) || [];
             for (var i = 0; i < gg.length; i++)
             {
@@ -97,7 +96,7 @@ angular.module('myYoProjectApp')
         {
             for(var i=0;i<gg.length;i++)
             {
-
+                var shus = JSON.parse(localStorage.getItem('shus')) || [];
                 if(gg[i].tureth=="true")
                 {
                     $scope.start_change=true;

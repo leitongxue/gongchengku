@@ -1,5 +1,5 @@
 header
-      竞价信息
+      竞价（{{number}}人）
 
 
       .header-left
@@ -7,3 +7,9 @@ header
 
       .header-right
          button.btn.btn-default.btn-lg(ng-click="end()")(ng-disabled="xian") 结 束
+
+div#wrapper(class="wrapper scrollable")
+    ul(class="list-style-2")
+        li(ng-repeat="messages in middle track by $index")
+            h3 {{messages.phone}}
+            h3.header-right{{messages.name}}

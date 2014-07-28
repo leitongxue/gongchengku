@@ -36,7 +36,6 @@ angular.module('myYoProjectApp')
 
         $scope.tiao=function (activity){
             localStorage.ttt=activity.activity;
-
             $location.path('/creat')
         }
 

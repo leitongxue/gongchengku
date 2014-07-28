@@ -20,13 +20,14 @@ var native_accessor = {
 
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
         var activity = JSON.parse(localStorage.getItem('activities'))
-        var message = {"name": "name", "phone": "phone"}
+        var message = {"name": "name", "phone": "phone"}   //竞价时，name就是价格
         var shus = JSON.parse(localStorage.getItem('shus'))
 
         message.name = duanxin.substr(2).trim()
         message.phone = json_message.messages[0].phone
 //       console.log(activity[0].messages[0].phone)
 //       console.log(message.phone)
+        //报名收发短信
         if (duanxin.search(/bm/i) == 0)
         {
             for (var i = 0; i < activity.length; i++)
@@ -64,6 +65,49 @@ var native_accessor = {
             }
             native_accessor.send_sms(json_message.messages[0].phone, "报名未开始，请耐心等待");
         }
+
+
+        //竞价收发短信
+        if (duanxin.search(/jj/i) == 0)
+        {
+            if(shus[0].color == "true")
+            {
+                if(shus[0].messages.length==0)
+                {
+                    console.log(2)
+                shus[0].messages.unshift(message)
+                localStorage.setItem("shus",JSON.stringify(shus))
+                console.log("恭喜您，竞价成功！")
+                refresh_pages()
+                }
+                else
+                {
+                    for(var i=0;i<shus[0].messages.length;i++)
+                    {
+                        if(message.phone==shus[0].messages[i].phone)
+                        {
+//                            native_accessor.send_sms(json_message.messages[0].phone, "报名已成功，请勿重复报名")
+                            console.log("竞价已成功，请勿重复竞价")
+                            return;
+                        }
+                        else
+                        {
+                            console.log(1)
+                            shus[0].messages.unshift(message)
+                            localStorage.setItem("shus",JSON.stringify(shus))
+                            console.log("恭喜您，竞价成功！")
+                            refresh_pages()
+                            break
+                        }
+                    }
+                }
+            }
+            else
+            {
+//                native_accessor.send_sms(json_message.messages[0].phone, "竞价未开始，请耐心等待");
+                console.log("竞价未开始，请耐心等待")
+            }
+        }
     }
 }
 //每当有报名信息收录时，页面自动刷新
@@ -73,6 +117,7 @@ function refresh_pages() {
         var scope = angular.element(refresh_page).scope();
         scope.$apply(function () {
             scope.diaoyong();
+
         })
     }
 }

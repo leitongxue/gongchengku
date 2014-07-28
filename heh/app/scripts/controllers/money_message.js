@@ -19,6 +19,24 @@ angular.module('myYoProjectApp')
             $location.path('/jingjia')
         }
 
+
+        $scope.diaoyong=function()
+        {
+            var gg = JSON.parse(localStorage.getItem('shus')) || [];
+            var oo = localStorage.getItem('TTT')
+            for(i=0;i<gg.length;i++)
+            {
+                if (gg[i].shus == oo)
+                {
+                    $scope.middle = gg[i].messages
+                    $scope.number = gg[i].messages.length
+                }
+                else {}
+            }
+        }
+        $scope.diaoyong()
+
+
         //结束按钮
         var shus = JSON.parse(localStorage.getItem('shus')) || [];
         $scope.end=function()
@@ -46,4 +64,6 @@ angular.module('myYoProjectApp')
                 else{$scope.xian=true}
             }
         }
+
+
     })
