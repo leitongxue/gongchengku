@@ -46,7 +46,7 @@ hr {
 	bottom:64px;
 	left:0px;
 	width:100%;
-	background:#f8f8f8;
+	/*background:#f8f8f8;*/
 	overflow:auto;
 	-webkit-transition: all 0.3s ease;
 }
