@@ -24,16 +24,16 @@ angular.module('myYoProjectApp')
                 else {
                     //定义数组
 
-//
 
-
-
-
-
-
-
-
-
+                    for (var k=0;k<gg.length;k++)
+                    {
+                        var oo = localStorage.getItem('ttt')
+                        if(gg[k].activity==oo)
+                        {
+                            gg[k].bid_status="true"
+                            localStorage.setItem("activities", JSON.stringify(gg));
+                        }
+                    }
 
 
                     var shu = {"shus": "shu", "messages": [], "color": "false"}
@@ -41,7 +41,7 @@ angular.module('myYoProjectApp')
                     shus.unshift(shu);
                     localStorage.setItem("shus", JSON.stringify(shus));
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
-                    console.log(shus.length)
+//                  console.log(shus.length)
 
                     //点击开始按钮，竞价活动+1
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];

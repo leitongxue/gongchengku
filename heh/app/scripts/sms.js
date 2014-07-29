@@ -76,20 +76,26 @@ var native_accessor = {
                 {
                     for(k=0;k<activity[0].activity.length;k++)
                     {
-                        for(j=0;j<activity[k].messages.length;j++) {
-                            if (activity[k].activity == oo && activity[k].messages[j].phone == message.phone) {
+                        for(j=0;j<activity[k].messages.length;j++)
+                        {
+                            if (activity[k].activity == oo && activity[k].messages[j].phone == message.phone)
+                            {
                                 shus[0].messages.unshift(message)
                                 localStorage.setItem("shus", JSON.stringify(shus))
-                                console.log("恭喜您，竞价成功！")
+                                console.log("恭喜您，竞价成功1！")
                                 refresh_pages()
-
+                                break
+                            }
+                            else
+                            {
+                                console.log("未报名活动，不能参加竞价")
+                                break
                             }
                         }
                     }
                 }
                 else
                 {
-
                     for(var i=0;i<shus[0].messages.length;i++)
                     {
                         if(message.phone==shus[0].messages[i].phone)
@@ -104,19 +110,26 @@ var native_accessor = {
                             {
                                 if(activity[a].activity==oo)
                                 {
-                                    for(k=0;k<activity[0].activity.length;k++)
-                                    {
-                                        for(j=0;j<activity[k].messages.length;j++) {
-                                            console.log(1)
-                                            if (activity[k].activity == oo && activity[k].messages[j].phone == message.phone)
-                                            {
+//                                    for(k=0;k<activity[a].activity.length;k++)
+//                                    {
+                                        for(j=0;j<activity[a].messages.length;j++)
+                                        {
+
+                                            if (activity[a].activity == oo && activity[a].messages[j].phone == message.phone)
+                                                {console.log(1)
                                                 shus[0].messages.unshift(message)
                                                 localStorage.setItem("shus", JSON.stringify(shus))
-                                                console.log("恭喜您，竞价成功！")
+                                                console.log("恭喜您，竞价成功！2")
                                                 refresh_pages()
+
+                                            }
+                                            else
+                                            {
+                                                console.log("未报名活动，不能参加竞价1")
+                                               return
                                             }
                                         }
-                                    }
+//                                    }
                                 }
                             }
 
