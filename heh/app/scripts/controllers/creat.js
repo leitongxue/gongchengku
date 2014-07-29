@@ -97,7 +97,7 @@ angular.module('myYoProjectApp')
             for(var i=0;i<gg.length;i++)
             {
                 var shus = JSON.parse(localStorage.getItem('shus')) || [];
-                if(gg[i].tureth=="true")
+                if(gg[i].tureth=="true" || gg[i].bid_status=="true")
                 {
                     $scope.start_change=true;
                     break;

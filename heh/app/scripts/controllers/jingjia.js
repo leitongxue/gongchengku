@@ -72,7 +72,7 @@ angular.module('myYoProjectApp')
         dian()
         //取出点击的竞价名
         $scope.next = function (shus) {
-            console.log(shus)
+//            console.log(shus)
             localStorage.TTT = shus.shus;
             $location.path('/Money_message')
         }

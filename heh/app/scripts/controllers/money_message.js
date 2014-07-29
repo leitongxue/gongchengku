@@ -43,6 +43,7 @@ angular.module('myYoProjectApp')
         {
             if (confirm("你确定要结束竞价吗？"))
             {
+
                 var gg = JSON.parse(localStorage.getItem('activities')) || [];
                 for (var k=0;k<gg.length;k++)
                 {
@@ -53,7 +54,6 @@ angular.module('myYoProjectApp')
                         localStorage.setItem("activities", JSON.stringify(gg));
                     }
                 }
-
 
 
                 if(shus[0].color == "true")
