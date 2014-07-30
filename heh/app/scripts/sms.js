@@ -73,13 +73,8 @@ var native_accessor = {
                     {
                         if (activity[a].activity == oo)//找到当前报名活动
                         {
-                            var action = _.find(activity, function (act) {
-                                return act.activity == localStorage.ttt
-                            }).messages
-                            var even = _.find(action, function (act) {
-                                return act.phone == message.phone
-
-                            })
+                            var action = _.find(activity, function (act) { return act.activity == localStorage.ttt }).messages
+                            var even = _.find(action, function (act) {return act.phone == message.phone})
 //                            console.log(even.name)
                             if (even)//判断竞价人是否报名该活动
                             {

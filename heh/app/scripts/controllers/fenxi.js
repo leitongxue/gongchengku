@@ -33,6 +33,7 @@ angular.module('myYoProjectApp')
                     $scope.number=list2[i].messages.length
                     var bidCount = _.countBy(list2[i].messages,function(bid){return bid.price});
                     var newshu=_.map(bidCount,function(value,key){return {'price':key,'count':value}});
+                    localStorage.setItem("price_p", JSON.stringify(newshu))
                     $scope.middle=newshu
 
                 }
