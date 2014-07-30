@@ -24,12 +24,13 @@ angular.module('myYoProjectApp')
         {
             var gg = JSON.parse(localStorage.getItem('shus')) || [];
             var oo = localStorage.getItem('TTT')
-            for(i=0;i<gg.length;i++)
+            for(var i=0;i<gg.length;i++)
             {
                 if (gg[i].shus == oo)
                 {
                     $scope.middle = gg[i].messages
                     $scope.number = gg[i].messages.length
+                    $scope.title =gg[0].shus
                 }
 
             }
@@ -63,6 +64,7 @@ angular.module('myYoProjectApp')
                     $scope.xian=true
                 }
             }
+            $location.path('/result')
         }
 
         //竞价信息页面结束按钮的可点不可点

@@ -14,6 +14,7 @@ angular.module('myYoProjectApp')
             'AngularJS',
             'Karma'
         ];
+
         $scope.backing="返回";
         $scope.go_backing=function()
         {

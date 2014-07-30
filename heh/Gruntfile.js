@@ -31,8 +31,11 @@ module.exports = function (grunt) {
           Money_message: {
               src: 'app/views/Money_message.jade',
               dest: 'app/views/Money_message.html'
+          },
+          result: {
+              src: 'app/views/result.jade',
+              dest: 'app/views/result.html'
           }
-          
       },
 
           // Project settings

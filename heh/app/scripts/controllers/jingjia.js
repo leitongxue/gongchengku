@@ -72,9 +72,27 @@ angular.module('myYoProjectApp')
         dian()
         //取出点击的竞价名
         $scope.next = function (shus) {
-//            console.log(shus)
-            localStorage.TTT = shus.shus;
-            $location.path('/Money_message')
+
+            localStorage.TTT = shus.shus
+            var NN = JSON.parse(localStorage.getItem('shus')) || [];
+            var name=localStorage.getItem('TTT')
+            for(var i=0;i<NN.length;i++)
+            {
+                if(NN[i].shus==name)
+                {
+                    if(NN[i].color=="false")
+                    {
+                        $location.path('/result')
+                        break
+                    }
+                    else
+                    {
+                        $location.path('/Money_message')
+                        break
+                    }
+                }
+            }
+
         }
 
         $scope.list2 = JSON.parse(localStorage.getItem('shus')) || [];
