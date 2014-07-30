@@ -35,6 +35,10 @@ module.exports = function (grunt) {
           result: {
               src: 'app/views/result.jade',
               dest: 'app/views/result.html'
+          },
+          fenxi: {
+              src: 'app/views/fenxi.jade',
+              dest: 'app/views/fenxi.html'
           }
       },
 

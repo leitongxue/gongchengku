@@ -39,9 +39,13 @@ angular
         templateUrl: 'views/Money_message.html',
         controller: 'Money_MessageCtrl'
       })
-        .when('/result', {
-            templateUrl: 'views/result.html',
-            controller: 'ResultCtrl'
+      .when('/result', {
+        templateUrl: 'views/result.html',
+        controller: 'ResultCtrl'
+        })
+      .when('/fenxi', {
+        templateUrl: 'views/fenxi.html',
+        controller: 'FenxiCtrl'
         })
       .otherwise({
         redirectTo: '/'

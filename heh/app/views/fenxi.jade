@@ -6,14 +6,23 @@ header
          button.btn.btn-default.btn-lg(ng-click="back()") 返 回
 
 
+
 div#wrapper(class="wrapper scrollable")
     ul(class="list-style-2")
-        li(ng-repeat="messages in middle track by $index")
-            h3 {{messages.name}}：{{messages.phone}}
-            h3.header-right￥{{messages.price}}
+        li(ng-repeat="middle in middle track by $index")
+            h3 ￥{{middle.price}}
+            h3.header-right{{middle.count}}
 
 
- footer
+
+
+
+
+
+
+
+
+footer
     ul.footer-nav.footer-nav-2tabs
         li
                 a(href='#/result')

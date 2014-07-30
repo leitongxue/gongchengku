@@ -56,7 +56,6 @@ angular.module('myYoProjectApp')
                     }
                 }
 
-
                 if(shus[0].color == "true")
                 {
                     shus[0].color = "false"
