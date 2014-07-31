@@ -12,8 +12,12 @@ div#wrapper(class="wrapper scrollable")
             h3 {{messages.name}}：{{messages.phone}}
             h3.header-right￥{{messages.price}}
 
+footer
 
- footer
+    ul(class="list-style-2" style="margin-bottom: 50px;")竞价结果：{{winner_name}}    ￥{{winner_price}}    {{winner_phone}}    竞价成功！
+
+
+footer
     ul.footer-nav.footer-nav-2tabs
         li
                 a(href='#/result')
@@ -22,13 +26,14 @@ div#wrapper(class="wrapper scrollable")
                 a(href='#/fenxi')
                      价格统计
 
- .modal.fade#ModalSuccess(style="border-bottom-width: 400px;")
+
+.modal.fade#ModalSuccess(style="display: block;height: 172px;margin-right: -10;")
    .modal-dialog
         .modal-content
           .modal-header
           .a(class="close" data-dismiss="modal" ) &times
             .h4.modal-title
           .modal-body
-          .center
-          {{bid_name}}  {{phone}}  ￥{{price}}    竞价成功    //显示的内容
+          .center(style="padding-left: 230px;")
+                {{winner_name}}    ￥{{winner_price}}    竞价成功
           .modal-footer

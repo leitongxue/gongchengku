@@ -50,12 +50,15 @@ angular.module('myYoProjectApp')
 //console.log(winner)
 //console.log(winner.name)
 
+        $scope.winner_name=winner.name
+        $scope.winner_phone=winner.phone
+        $scope.winner_price=winner.price
 //        function ale() {
 //            //弹出一个对话框
 //            var a=winner.name
 //            var b=winner.phone
 //            var c=winner.price
-//            alert(a+c+"竞价成功");
+//            alert(a+c+"竞价成功");  不能自动关闭
 ////            setTimeout("ale.close()", 10000)
 //        }
 //        ale()
@@ -68,5 +71,6 @@ angular.module('myYoProjectApp')
         $('#ModalSuccess').modal("show");
         $timeout(function () {
             $('#ModalSuccess').modal('hide');
-        }, 300000000000000)
-    })
+        }, 2000)
+
+})
