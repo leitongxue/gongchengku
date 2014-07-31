@@ -8,7 +8,7 @@
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
-    .controller('ResultCtrl', function ($scope, $location) {
+    .controller('ResultCtrl', function ($scope, $location,$timeout) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -43,10 +43,30 @@ angular.module('myYoProjectApp')
 //
         var list_price=JSON.parse(localStorage.getItem("price_p"))
         var min= _.find(list_price,function(act){return act.count == 1})//先找到最低符合要求的价格
-console.log(min.price)
+//console.log(min.price)
         var winner_action= _.find(list2,function(act){return act.shus== name2}).messages //找到所在竞价活动的messages数组
-console.log(winner_action)
+//console.log(winner_action)
         var winner= _.find(winner_action,function(act){return act.price == min.price}) //找出最低价格
-console.log(winner)
+//console.log(winner)
+//console.log(winner.name)
 
+//        function ale() {
+//            //弹出一个对话框
+//            var a=winner.name
+//            var b=winner.phone
+//            var c=winner.price
+//            alert(a+c+"竞价成功");
+////            setTimeout("ale.close()", 10000)
+//        }
+//        ale()
+//        function closeit() {
+//            setTimeout( "3", 1000) //毫秒
+//        }
+//        closeit()
+
+//
+        $('#ModalSuccess').modal("show");
+        $timeout(function () {
+            $('#ModalSuccess').modal('hide');
+        }, 300000000000000)
     })

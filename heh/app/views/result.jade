@@ -21,3 +21,14 @@ div#wrapper(class="wrapper scrollable")
         li.active
                 a(href='#/fenxi')
                      价格统计
+
+ .modal.fade#ModalSuccess(style="border-bottom-width: 400px;")
+   .modal-dialog
+        .modal-content
+          .modal-header
+          .a(class="close" data-dismiss="modal" ) &times
+            .h4.modal-title
+          .modal-body
+          .center
+          {{bid_name}}  {{phone}}  ￥{{price}}    竞价成功    //显示的内容
+          .modal-footer
