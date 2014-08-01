@@ -95,9 +95,12 @@ var native_accessor = {
                 }
                 else {
 
-                    for (var i = 0; i < shus[0].messages.length; i++) {
-                        if (message.phone == shus[0].messages[i].phone) {
-//                            native_accessor.send_sms(json_message.messages[0].phone, "报名已成功，请勿重复报名")
+                    var NN= _.find(shus[0].messages,function(act){return act.phone==message.phone})
+console.log(shus[0].messages)
+console.log(message.phone)
+console.log(NN)
+                        if (NN) {
+console.log(11)
                             native_accessor.send_sms(json_message.messages[0].phone, "竞价已成功，请勿重复竞价")
                             return;
                         }
@@ -118,7 +121,7 @@ var native_accessor = {
                                         message.name=even.name
                                         shus[0].messages.unshift(message)
                                         localStorage.setItem("shus", JSON.stringify(shus))
-                                        native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，竞价成功！")
+                                        native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，竞价成功！=")
                                         refresh_pages()
 //                                          break;
                                     }
@@ -128,7 +131,7 @@ var native_accessor = {
                                     }
 
                                 }
-                            }
+                                else{}
 
                             break
                         }
