@@ -3,7 +3,7 @@ header
 
 
       .header-left
-         button.btn.btn-default.btn-lg(ng-click="back()") 返 回
+         a.btn.btn-default.btn-lg(href="#/jingjia") 返 回
 
 
 div#wrapper(class="wrapper scrollable")
@@ -14,8 +14,18 @@ div#wrapper(class="wrapper scrollable")
 
 footer
 
-    ul(class="list-style-2" style="margin-bottom: 50px;")竞价结果：{{winner_name}}    {{winner_price}}    {{winner_phone}}    竞价成功！
+    ul(class="list-style-2" style="margin-bottom: 50px;")竞价结果：{{winner_name}}    {{winner_price}}    {{winner_phone}}
 
+
+.modal.fade#ModalSuccess
+   .modal-dialog
+        .modal-content
+          .a(class="close" data-dismiss="modal" ) &times
+            .h4.modal-title
+          .modal-body
+          .center(style="padding-left: 230px;")
+                {{winner_name}}    ￥{{winner_price}}    竞价成功
+          .modal-footer
 
 footer
     ul.footer-nav.footer-nav-2tabs
@@ -27,13 +37,3 @@ footer
                      价格统计
 
 
-.modal.fade#ModalSuccess(style="display: block;height: 172px;margin-right: -10;")
-   .modal-dialog
-        .modal-content
-          .modal-header
-          .a(class="close" data-dismiss="modal" ) &times
-            .h4.modal-title
-          .modal-body
-          .center(style="padding-left: 230px;")
-                {{winner_name}}    ￥{{winner_price}}    竞价成功
-          .modal-footer

@@ -54,6 +54,7 @@ angular.module('myYoProjectApp')
                     {
                         gg[k].bid_status="false"
                         localStorage.setItem("activities", JSON.stringify(gg));
+                        $location.path('/result')
                     }
                 }
 
@@ -63,30 +64,26 @@ angular.module('myYoProjectApp')
                     localStorage.setItem("shus", JSON.stringify(shus))
                     $scope.xian=true
                 }
-                if(shus[0].push=="start")
-                {
-                    shus[0].push="end"
-                    localStorage.setItem("shus",JSON.stringify(shus))
-                }
+
 
             }
 
-            $location.path('/result')
+
         }
 
-        //竞价信息页面结束按钮的可点不可点
-        for(var i=0;i<shus.length;i++)
-        {
-            var oo = localStorage.getItem('TTT')
-            if (shus[i].shus == oo)
-            {
-                if (shus[i].color == "true")
-                {
-                    $scope.log=false
-                }
-                else{$scope.xian=true}
-            }
-        }
+//        //竞价信息页面结束按钮的可点不可点
+//        for(var i=0;i<shus.length;i++)
+//        {
+//            var oo = localStorage.getItem('TTT')
+//            if (shus[i].shus == oo)
+//            {
+//                if (shus[i].bid_status == "true")
+//                {
+//                    $scope.xian=false
+//                }
+//                else{$scope.xian=true}
+//            }
+//        }
 
 
     })

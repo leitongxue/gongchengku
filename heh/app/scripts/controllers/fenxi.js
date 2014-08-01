@@ -37,23 +37,27 @@ angular.module('myYoProjectApp')
 
                     if(list2[i].messages.length==0)
                     {
-
+                        $scope.winner_name="0人"
                     }
                     else
                     {
                         var list_price=JSON.parse(localStorage.getItem("price_p"))
-                        var min= _.find(list_price,function(act){return act.count == 1})//先找到最低符合要求的价格
-//console.log(min.price)
-                        var winner_action= _.find(list2,function(act){return act.shus== name2}).messages //找到所在竞价活动的messages数组
-//console.log(winner_action)
-                        var winner= _.find(winner_action,function(act){return act.price == min.price}) //找出最低价格
-//console.log(winner)
-//console.log(winner.name)
-
-                        $scope.winner_name=winner.name
-                        $scope.winner_phone=winner.phone
-                        $scope.winner_price=winner.price
-
+                        for(var k=0;k<list_price.length;k++)
+                        {
+                            if(list_price[k].count == 1)
+                            {
+                                var winner=JSON.parse(localStorage.getItem("winner"))
+                                $scope.winner_name=winner.name
+                                $scope.winner_phone=winner.phone+"  竞价成功！"
+                                $scope.winner_price="￥"+winner.price
+                            }
+                            else
+                            {
+                                $scope.winner_name="竞价失败！"
+                                $scope.winner_phone=""
+                                $scope.winner_price=""
+                            }
+                        }
                     }
 
                 }

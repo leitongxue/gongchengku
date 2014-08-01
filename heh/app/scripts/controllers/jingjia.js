@@ -23,8 +23,6 @@ angular.module('myYoProjectApp')
                 }
                 else {
                     //定义数组
-
-
                     for (var k=0;k<gg.length;k++)
                     {
                         var oo = localStorage.getItem('ttt')
@@ -57,18 +55,17 @@ angular.module('myYoProjectApp')
 
         function dian() {
             var shus = JSON.parse(localStorage.getItem('shus')) || [];
-            for (var k = 0; k < shus.length; k++) {
-                if (shus[k].color == "true") {
+            var e1= _.find(gg,function(act){return act.tureth== "true"})
+            var w2= _.find(shus,function(act){return act.color== "true"})
+
+            if (e1 || w2) {
                     $scope.dian = true;
-                    break;
+
                 }
                 else {
                     $scope.dian = false;
                 }
             }
-
-        }
-
         dian()
         //取出点击的竞价名
         $scope.next = function (shus) {

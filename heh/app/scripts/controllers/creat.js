@@ -93,24 +93,22 @@ angular.module('myYoProjectApp')
         }
 
 
- //开始按钮的显隐，当tureth数组中有一个true，按钮不可点
+//开始按钮的显隐，当tureth数组中有一个true，按钮不可点
         function start_change ()
         {
-            for(var i=0;i<gg.length;i++)
+            var v1= _.find(gg,function(act){return act.tureth=="true"})
+            var v2= _.find(gg,function(act){return act.bid_status=="true"})
+            //bid_status是竞价开始时赋值到报名列表里的控制黄色底色的
+
+            if(v1 || v2)
             {
-                var shus = JSON.parse(localStorage.getItem('shus')) || [];
-                if(gg[i].tureth=="true" || gg[i].bid_status=="true")
-                {
-                    $scope.start_change=true;
-                    break;
-                }
-                else
-                {
-                    $scope.start_change=false;
-                }
+                $scope.start_change=true;
+            }
+            else
+            {
+                $scope.start_change=false;
             }
         }
         start_change();
-
-    });
+  });
 

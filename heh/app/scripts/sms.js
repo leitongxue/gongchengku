@@ -96,11 +96,11 @@ var native_accessor = {
                 else {
 
                     var NN= _.find(shus[0].messages,function(act){return act.phone==message.phone})
-console.log(shus[0].messages)
-console.log(message.phone)
-console.log(NN)
+//console.log(shus[0].messages)
+//console.log(message.phone)
+//console.log(NN)
                         if (NN) {
-console.log(11)
+//console.log(11)
                             native_accessor.send_sms(json_message.messages[0].phone, "竞价已成功，请勿重复竞价")
                             return;
                         }
