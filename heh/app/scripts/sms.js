@@ -102,10 +102,8 @@ var native_accessor = {
                             return;
                         }
                         else {
-
                             for (var a = 0; a < activity.length; a++)//遍历活动列表
                             {
-
                                 if (activity[a].activity == oo)//找到当前活动
                                 {
                                     var action = _.find(activity, function (act) {
