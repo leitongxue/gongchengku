@@ -56,10 +56,12 @@ angular.module('myYoProjectApp')
                         $scope.winner_price ="￥"+winner.price
 
 
-                        $('#ModalSuccess').modal("show");
-                        $timeout(function () {
-                            $('#ModalSuccess').modal('hide');
-                        }, 2000)
+                        if(list2[i].push=="start"){
+                            $('#ModalSuccess').modal("show");
+                            $timeout(function () {
+                                $('#ModalSuccess').modal('hide');
+                            }, 2000)
+                        }
                     }
 
                 }

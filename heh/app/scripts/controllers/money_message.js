@@ -39,12 +39,13 @@ angular.module('myYoProjectApp')
 
 
         //结束按钮
-        var shus = JSON.parse(localStorage.getItem('shus')) || [];
+        var shus = JSON.parse(localStorage.getItem('shus')) || [];//先提取出空数组，进行压栈
+
         $scope.end=function()
         {
+            var shus = JSON.parse(localStorage.getItem('shus')) || [];//在取出压栈好的，结束，这样点结束按钮后数组不会为空
             if (confirm("你确定要结束竞价吗？"))
             {
-
                 var gg = JSON.parse(localStorage.getItem('activities')) || [];
                 for (var k=0;k<gg.length;k++)
                 {
@@ -62,7 +63,14 @@ angular.module('myYoProjectApp')
                     localStorage.setItem("shus", JSON.stringify(shus))
                     $scope.xian=true
                 }
+                if(shus[0].push=="start")
+                {
+                    shus[0].push="end"
+                    localStorage.setItem("shus",JSON.stringify(shus))
+                }
+
             }
+
             $location.path('/result')
         }
 

@@ -36,7 +36,7 @@ angular.module('myYoProjectApp')
                     }
 
 
-                    var shu = {"shus": "shu", "messages": [], "color": "false"}
+                    var shu = {"shus": "shu", "messages": [], "color": "false","push":"start"}
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
                     shus.unshift(shu);
                     localStorage.setItem("shus", JSON.stringify(shus));
