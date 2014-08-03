@@ -34,7 +34,7 @@ angular.module('myYoProjectApp')
                     }
 
 
-                    var shu = {"shus": "shu", "messages": [], "color": "false","push":"start"}
+                    var shu = {"name":localStorage.ttt,"shus": "shu", "messages": [], "color": "false","push":"start"}
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
                     shus.unshift(shu);
                     localStorage.setItem("shus", JSON.stringify(shus));
@@ -43,7 +43,9 @@ angular.module('myYoProjectApp')
 
                     //点击开始按钮，竞价活动+1
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
-                    shus[0].shus = "竞价" + shus.length
+                 var shu=   _.filter(shus,function(shu){return shu.name==localStorage.ttt})
+                    console.log(shu)
+                    shus[0].shus = "竞价" + shu.length
                     shus[0].color = "true"
                     localStorage.setItem("shus", JSON.stringify(shus))
                     localStorage.TTT = shus[0].shus;
@@ -91,8 +93,8 @@ angular.module('myYoProjectApp')
             }
 
         }
-
-        $scope.list2 = JSON.parse(localStorage.getItem('shus')) || [];
+        var shus = JSON.parse(localStorage.getItem('shus')) || [];
+        $scope.list2 = _.filter(shus,function(shu){return shu.name==localStorage.ttt})
         $scope.back = function () {
             $location.path('/creat')
         }

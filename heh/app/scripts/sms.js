@@ -105,14 +105,16 @@ var native_accessor = {
                             return;
                         }
                         else {
-                            for (var a = 0; a < activity.length; a++)//遍历活动列表
-                            {
-                                if (activity[a].activity == oo)//找到当前活动
+                            var oo = localStorage.getItem('ttt')
+console.log(oo)
+                            var GG= _.find(activity,function(act){return act.activity==oo})
+                                if (GG)//找到当前活动
                                 {
                                     var action = _.find(activity, function (act) {
                                         return act.activity == localStorage.ttt
                                     }).messages
 //                                    console.log(action)
+
                                     var even = _.find(action, function (act) {
                                         return act.phone == message.phone
                                     })
@@ -133,8 +135,8 @@ var native_accessor = {
                                 }
                                 else{}
 
-                            break
-                        }
+             
+
                     }
                 }
             }
