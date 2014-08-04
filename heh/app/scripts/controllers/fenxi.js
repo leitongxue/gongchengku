@@ -20,7 +20,8 @@ angular.module('myYoProjectApp')
         }
 
 
-        var list2=JSON.parse(localStorage.getItem('shus')) || [];
+        var shus=JSON.parse(localStorage.getItem('shus')) || [];
+        var list2=_.filter(shus,function(shu){return shu.name==localStorage.ttt})
         var name2=localStorage.getItem('TTT');
         $scope.xianshi=function()
         {

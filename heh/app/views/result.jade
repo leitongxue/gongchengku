@@ -17,15 +17,14 @@ footer
     ul(class="list-style-2" style="margin-bottom: 50px;")竞价结果：{{winner_name}}    {{winner_price}}    {{winner_phone}}
 
 
-.modal.fade#ModalSuccess
-   .modal-dialog
+.modal.fade#ModalSuccess(style="display: block;width: 600px;height: 60px;")
+   .modal-dialog(style="margin-bottom: 0px;margin-left: 0px;margin-top: 0px;margin-right: 0px;")
         .modal-content
           .a(class="close" data-dismiss="modal" ) &times
             .h4.modal-title
           .modal-body
-          .center(style="padding-left: 230px;")
-                {{winner_name}}    ￥{{winner_price}}    竞价成功
-          .modal-footer
+          .center
+                {{winner_name}}   {{winner_price}}    {{winner_phone}}
 
 footer
     ul.footer-nav.footer-nav-2tabs

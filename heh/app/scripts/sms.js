@@ -19,12 +19,9 @@ var native_accessor = {
 
 //        提取短信中的信息，创建messages数组，将提取出来的信息已数组形式存放在messages中
         var activity = JSON.parse(localStorage.getItem('activities')) || []
-          //竞价时，name就是价格
+        //竞价时，name就是价格
         var shus = JSON.parse(localStorage.getItem('shus'))
         var oo = localStorage.getItem('ttt')
-
-//       console.log(activity[0].messages[0].phone)
-//       console.log(message.phone)
 
         //报名收发短信
         if (duanxin.search(/bm/i) == 0) {
@@ -33,7 +30,6 @@ var native_accessor = {
             message.phone = json_message.messages[0].phone
             for (var i = 0; i < activity.length; i++) {
                 if (activity[i].tureth == "true") {
-//                console.log(activity[i].messages.length)
                     if (activity[i].messages.length == 0) {
                         activity[i].messages.unshift(message);
                         localStorage.setItem("activities", JSON.stringify(activity));
@@ -63,7 +59,7 @@ var native_accessor = {
 
         //竞价收发短信
         if (duanxin.search(/jj/i) == 0) {
-            var message = {"name": "name", "phone": "phone","price":"price"}
+            var message = {"name": "name", "phone": "phone", "price": "price"}
             message.price = duanxin.substr(2).trim()
             message.phone = json_message.messages[0].phone
             if (shus[0].color == "true") //判断竞价是否开始
@@ -73,13 +69,16 @@ var native_accessor = {
                     {
                         if (activity[a].activity == oo)//找到当前报名活动
                         {
-                            var action = _.find(activity, function (act) { return act.activity == localStorage.ttt }).messages
-                            var even = _.find(action, function (act) {return act.phone == message.phone})
-//                            console.log(even.name)
+                            var action = _.find(activity, function (act) {
+                                return act.activity == localStorage.ttt
+                            }).messages
+                            var even = _.find(action, function (act) {
+                                return act.phone == message.phone
+                            })
                             if (even)//判断竞价人是否报名该活动
                             {
 //                                console.log(2)
-                                message.name=even.name
+                                message.name = even.name
                                 shus[0].messages.unshift(message)
                                 localStorage.setItem("shus", JSON.stringify(shus))
                                 native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，竞价成功!")
@@ -95,48 +94,45 @@ var native_accessor = {
                 }
                 else {
 
-                    var NN= _.find(shus[0].messages,function(act){return act.phone==message.phone})
-//console.log(shus[0].messages)
-//console.log(message.phone)
-//console.log(NN)
-                        if (NN) {
-//console.log(11)
-                            native_accessor.send_sms(json_message.messages[0].phone, "竞价已成功，请勿重复竞价")
-                            return;
-                        }
-                        else {
-                            var oo = localStorage.getItem('ttt')
-console.log(oo)
-                            var GG= _.find(activity,function(act){return act.activity==oo})
-                                if (GG)//找到当前活动
-                                {
-                                    var action = _.find(activity, function (act) {
-                                        return act.activity == localStorage.ttt
-                                    }).messages
+                    var NN = _.find(shus[0].messages, function (act) {
+                        return act.phone == message.phone
+                    })
+
+                    if (NN) {
+                        native_accessor.send_sms(json_message.messages[0].phone, "竞价已成功，请勿重复竞价")
+                        return;
+                    }
+                    else {
+                        var oo = localStorage.getItem('ttt')
+                        console.log(oo)
+                        var GG = _.find(activity, function (act) {
+                            return act.activity == oo
+                        })
+                        if (GG)//找到当前活动
+                        {
+                            var action = _.find(activity, function (act) {
+                                return act.activity == localStorage.ttt
+                            }).messages
 //                                    console.log(action)
 
-                                    var even = _.find(action, function (act) {
-                                        return act.phone == message.phone
-                                    })
-                                    if (even)//判断竞价人是否已经报名
-                                    {
-                                        message.name=even.name
-                                        shus[0].messages.unshift(message)
-                                        localStorage.setItem("shus", JSON.stringify(shus))
-                                        native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，竞价成功！=")
-                                        refresh_pages()
-//                                          break;
-                                    }
-                                    else {
-                                        native_accessor.send_sms(json_message.messages[0].phone, "未报名活动，不能参加竞价")
-                                        return
-                                    }
-
-                                }
-                                else{}
-
-             
-
+                            var even = _.find(action, function (act) {
+                                return act.phone == message.phone
+                            })
+                            if (even)//判断竞价人是否已经报名
+                            {
+                                message.name = even.name
+                                shus[0].messages.unshift(message)
+                                localStorage.setItem("shus", JSON.stringify(shus))
+                                native_accessor.send_sms(json_message.messages[0].phone, "恭喜您，竞价成功！=")
+                                refresh_pages()
+                            }
+                            else {
+                                native_accessor.send_sms(json_message.messages[0].phone, "未报名活动，不能参加竞价")
+                                return
+                            }
+                        }
+                        else {
+                        }
                     }
                 }
             }

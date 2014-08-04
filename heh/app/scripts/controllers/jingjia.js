@@ -33,17 +33,16 @@ angular.module('myYoProjectApp')
                         }
                     }
 
-
                     var shu = {"name":localStorage.ttt,"shus": "shu", "messages": [], "color": "false","push":"start"}
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
                     shus.unshift(shu);
                     localStorage.setItem("shus", JSON.stringify(shus));
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
-//                  console.log(shus.length)
+
 
                     //点击开始按钮，竞价活动+1
                     var shus = JSON.parse(localStorage.getItem('shus')) || [];
-                 var shu=   _.filter(shus,function(shu){return shu.name==localStorage.ttt})
+                    var shu=   _.filter(shus,function(shu){return shu.name==localStorage.ttt})
                     console.log(shu)
                     shus[0].shus = "竞价" + shu.length
                     shus[0].color = "true"
@@ -94,8 +93,8 @@ angular.module('myYoProjectApp')
 
         }
         var shus = JSON.parse(localStorage.getItem('shus')) || [];
-        $scope.list2 = _.filter(shus,function(shu){return shu.name==localStorage.ttt})
+        $scope.list2 = _.filter(shus,function(shu){return shu.name==localStorage.ttt})//取出所有符合条件的值
         $scope.back = function () {
-            $location.path('/creat')
+            $location.path('/list')
         }
     })

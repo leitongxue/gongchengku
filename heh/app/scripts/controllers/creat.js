@@ -75,7 +75,7 @@ angular.module('myYoProjectApp')
         $scope.HH=function firm()
         {
             var gg = JSON.parse(localStorage.getItem('activities'))||[];
-            if (confirm("你确定要退出活动吗？"))
+            if (confirm("你确定要退出报名吗？"))
             {
                 $scope.log="true"
                 var tureth={"log":"log"}

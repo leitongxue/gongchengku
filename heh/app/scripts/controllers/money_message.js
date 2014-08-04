@@ -22,7 +22,8 @@ angular.module('myYoProjectApp')
 
         $scope.diaoyong=function()
         {
-            var gg = JSON.parse(localStorage.getItem('shus')) || [];
+            var shus = JSON.parse(localStorage.getItem('shus')) || [];
+            var gg=_.filter(shus,function(shu){return shu.name==localStorage.ttt})
             var oo = localStorage.getItem('TTT')
             for(var i=0;i<gg.length;i++)
             {

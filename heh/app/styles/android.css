@@ -4,6 +4,13 @@
 	box-sizing: border-box;
 }
 
+li.active{
+    background-color: #c0c0c0;
+}
+
+li.active a{
+    color: #ffffff ;
+}
 input[type="search"] {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
