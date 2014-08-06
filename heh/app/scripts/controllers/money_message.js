@@ -8,32 +8,30 @@
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
-    .controller('Money_MessageCtrl', function ($scope,$location) {
+    .controller('Money_MessageCtrl', function ($scope, $location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
-        $scope.back=function()
-        {
+        $scope.back = function () {
             $location.path('/jingjia')
         }
 
 
-        $scope.diaoyong=function()
-        {
+        $scope.diaoyong = function () {
             var shus = JSON.parse(localStorage.getItem('shus')) || [];
-            var gg=_.filter(shus,function(shu){return shu.name==localStorage.ttt})
-            var oo = localStorage.getItem('TTT')
-            for(var i=0;i<gg.length;i++)
-            {
-                if (gg[i].shus == oo)
-                {
-                    $scope.middle = gg[i].messages
-                    $scope.number = gg[i].messages.length
-                    $scope.title =gg[0].shus
-                }
+            var activity = _.filter(shus, function (shu) {
+                return shu.name == localStorage.baoMing_name
+            })
+            var activity_ing = _.find(activity, function (act) {
+                return act.shus == localStorage.jingjia_name
+            })
+            if (activity_ing) {
 
+                $scope.middle = activity_ing.messages
+                $scope.number = activity_ing.messages.length
+                $scope.title = activity_ing.shus
             }
         }
         $scope.diaoyong()
@@ -42,49 +40,25 @@ angular.module('myYoProjectApp')
         //结束按钮
         var shus = JSON.parse(localStorage.getItem('shus')) || [];//先提取出空数组，进行压栈
 
-        $scope.end=function()
-        {
+        $scope.end = function () {
             var shus = JSON.parse(localStorage.getItem('shus')) || [];//在取出压栈好的，结束，这样点结束按钮后数组不会为空
-            if (confirm("你确定要结束竞价吗？"))
-            {
-                var gg = JSON.parse(localStorage.getItem('activities')) || [];
-                for (var k=0;k<gg.length;k++)
-                {
-                    var oo = localStorage.getItem('ttt')
-                    if(gg[k].activity==oo)
-                    {
-                        gg[k].bid_status="false"
-                        localStorage.setItem("activities", JSON.stringify(gg));
-                        $location.path('/result')
-                    }
+            if (confirm("你确定要结束竞价吗？")) {
+                var activities = JSON.parse(localStorage.getItem('activities')) || [];
+                var ev = _.find(activities, function (act) {
+                    return act.activity == localStorage.baoMing_name
+                     })
+                console.log(ev)
+                if (ev.bid_status=="true") {
+                    ev.bid_status = "false"
+                    localStorage.setItem("activities", JSON.stringify(activities));
+                    $location.path('/result')
                 }
 
-                if(shus[0].color == "true")
-                {
+                if (shus[0].color == "true") {
                     shus[0].color = "false"
                     localStorage.setItem("shus", JSON.stringify(shus))
-                    $scope.xian=true
+//                    $scope.xian = true
                 }
-
-
             }
-
-
         }
-
-//        //竞价信息页面结束按钮的可点不可点
-//        for(var i=0;i<shus.length;i++)
-//        {
-//            var oo = localStorage.getItem('TTT')
-//            if (shus[i].shus == oo)
-//            {
-//                if (shus[i].bid_status == "true")
-//                {
-//                    $scope.xian=false
-//                }
-//                else{$scope.xian=true}
-//            }
-//        }
-
-
     })

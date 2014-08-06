@@ -8,37 +8,34 @@
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
-  .controller('ListCtrl', function ($scope,$location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-        $scope.list1 = JSON.parse(localStorage.getItem('activities'))||[];
+    .controller('ListCtrl', function ($scope, $location) {
+        $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+        $scope.list1 = JSON.parse(localStorage.getItem('activities')) || [];
         var shus = JSON.parse(localStorage.getItem('shus')) || [];
-        for(var k = 0; k < shus.length; k++)
-        {
-            if(shus[k].color == "true")
-            {
-                $scope.dnf=true
-                break;
-            }
-            else
-            {
-                $scope.dnf=false;
-            }
+        var even = _.find(shus, function (act) {
+            return act.color == "true"
+        })
+        if (even) {
+            $scope.dnf = true
+        }
+        else {
+            $scope.dnf = false;
         }
 
-        $scope.next="创建活动";
-        $scope.go_next=function(){
+
+        $scope.next = "创建活动";
+        $scope.go_next = function () {
             $location.path('main_one');
         }
 
-        $scope.tiao=function (activity){
-            localStorage.ttt=activity.activity;
+        $scope.tiao = function (activity) {
+            localStorage.baoMing_name = activity.activity;
             $location.path('/creat')
         }
-
 
 
         function xuan() {
@@ -55,6 +52,4 @@ angular.module('myYoProjectApp')
 
 
     }
-
-
 );

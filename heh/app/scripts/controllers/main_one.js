@@ -8,70 +8,59 @@
  * Controller of the myYoProjectApp
  */
 angular.module('myYoProjectApp')
-  .controller('Main_OneCtrl', function ($scope,$location) {
+    .controller('Main_OneCtrl', function ($scope, $location) {
         $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-     ];
-        $scope.show1=false;
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+        $scope.show1 = false;
 
-        $scope.inputstatus = function()
-        {
+        $scope.inputstatus = function () {
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
-            for(var i=0;i<activities.length;i++)
-            {
-                if(activities[i].activity==$scope.change)
-                {
-                    $scope.show1=true;
-                    break;
-                }
-                else
-                {
-                    $scope.show1=false;
-                }
-
+            var even = _.find(activities, function (act) {
+                return act.activity == $scope.change
+            })
+            if (even) {
+                $scope.show1 = true;
+            }
+            else {
+                $scope.show1 = false;
             }
         }
 
         $scope.back = "返回";
-        $scope.go_back = function ()
-        {
+        $scope.go_back = function () {
             $location.path('/list')
         }
 
         $scope.register = "创建";
-        $scope.go_register = function ()
-        {
+        $scope.go_register = function () {
             jump()
-            if($scope.show1 == false)
-            {
+            if ($scope.show1 == false) {
                 $location.path('/creat');
-                localStorage.ttt=$scope.change
+                localStorage.baoMing_name = $scope.change
             }
 
         }
 
 
-                  //          数组
-           function jump()
-           {
-               if($scope.show1==false)
-               {
+        //          数组
+        function jump() {
+            if ($scope.show1 == false) {
 
-               var activity = {"activity":$scope.change,"messages":[],"tureth":"false","bid_status":"false"}
+                var activity = {"activity": $scope.change, "messages": [], "tureth": "false", "bid_status": "false"}
 
-               var activities = JSON.parse(localStorage.getItem('activities')) || [];
+                var activities = JSON.parse(localStorage.getItem('activities')) || [];
 
-                   activities.unshift(activity);
-               localStorage.setItem("activities", JSON.stringify(activities));
+                activities.unshift(activity);
+                localStorage.setItem("activities", JSON.stringify(activities));
 
-               }
-           }
+            }
+        }
 
-            //返回按钮的显隐
-            $scope.see=localStorage.getItem('activities');
+        //返回按钮的显隐
+        $scope.see = localStorage.getItem('activities');
 
-}
-
+    }
 )

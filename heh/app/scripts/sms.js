@@ -21,7 +21,7 @@ var native_accessor = {
         var activity = JSON.parse(localStorage.getItem('activities')) || []
         //竞价时，name就是价格
         var shus = JSON.parse(localStorage.getItem('shus'))
-        var oo = localStorage.getItem('ttt')
+        var oo = localStorage.getItem('baoMing_name')
 
         //报名收发短信
         if (duanxin.search(/bm/i) == 0) {
@@ -70,7 +70,7 @@ var native_accessor = {
                         if (activity[a].activity == oo)//找到当前报名活动
                         {
                             var action = _.find(activity, function (act) {
-                                return act.activity == localStorage.ttt
+                                return act.activity == localStorage.baoMing_name
                             }).messages
                             var even = _.find(action, function (act) {
                                 return act.phone == message.phone
@@ -103,7 +103,7 @@ var native_accessor = {
                         return;
                     }
                     else {
-                        var oo = localStorage.getItem('ttt')
+                        var oo = localStorage.getItem('baoMing_name')
                         console.log(oo)
                         var GG = _.find(activity, function (act) {
                             return act.activity == oo
@@ -111,7 +111,7 @@ var native_accessor = {
                         if (GG)//找到当前活动
                         {
                             var action = _.find(activity, function (act) {
-                                return act.activity == localStorage.ttt
+                                return act.activity == localStorage.baoMing_name
                             }).messages
 //                                    console.log(action)
 
